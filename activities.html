@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Activities - Explore</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/mobile.css">
+	<script src="js/mobile.js" type="text/javascript"></script>
+	<style>
+		/* Custom styles for the activities page */
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f4f4f4;
+			color: #333;
+		}
+
+		
+
+		
+		#body {
+			padding: 20px;
+		}
+
+		#body h1 {
+			text-align: center;
+			color: #6a9fb5;
+		}
+
+		.activities-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+
+		.activity-card {
+			background-color: white;
+			width: 300px;
+			margin: 15px;
+			border-radius: 8px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			padding: 15px;
+		}
+
+		.activity-card img {
+			width: 100%;
+			border-radius: 8px;
+		}
+
+		.activity-card h2 {
+			color: #444;
+			font-size: 20px;
+			margin: 10px 0;
+		}
+
+		.activity-card p {
+			font-size: 14px;
+			color: #666;
+		}
+
+		.activity-card .btn {
+			display: inline-block;
+			margin-top: 10px;
+			padding: 8px 15px;
+			background-color: #6a9fb5;
+			color: white;
+			text-decoration: none;
+			border-radius: 4px;
+			transition: background-color 0.3s;
+		}
+
+		.activity-card .btn:hover {
+			background-color: #ffcc00;
+			color: #333;
+		}
+
+		#personalize-section {
+			text-align: center;
+			margin: 20px 0;
+		}
+
+		#personalize-section input {
+			padding: 10px;
+			width: 200px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			margin-right: 10px;
+		}
+
+		#personalize-section button {
+			padding: 10px 20px;
+			background-color: #6a9fb5;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		#personalize-section button:hover {
+			background-color: #ffcc00;
+			color: #333;
+		}
+
+		#personalized-message {
+			margin-top: 20px;
+			font-size: 18px;
+			color: #444;
+		}
+	</style>
+</head>
+<body>
+	<div id="page">
+		<div id="header">
+			<div id="navigation">
+				<span id="mobile-navigation">&nbsp;</span>
+				<a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+				<ul id="menu">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li class="selected"><a href="activities.html">Activities</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="body">
+			<h1>Explore Activities</h1>
+			<div id="personalize-section">
+				<h2>Want a personalized experience? Enter your name:</h2>
+				<input type="text" id="userName" placeholder="Enter your name">
+				<button onclick="personalizeMessage()">Submit</button>
+				<div id="personalized-message"></div>
+			</div>
+			<div class="activities-list">
+				<div class="activity-card">
+					<img src="images/activity1.jpg" alt="Activity 1">
+					<h2>Hiking</h2>
+			
+				
+				</div>
+				<div class="activity-card">
+					<img src="images/activity2.jpg" alt="Activity 2">
+					<h2>Boating</h2>
+				
+				</div>
+				<div class="activity-card">
+					<img src="images/activity3.jpg" alt="Activity 3">
+					<h2>Tea Tasting</h2>
+			
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div>
+				<p>&copy; 24224012 &nbsp; Fathima Mariam Imtiaz</p>
+			</div>
+		</div>
+	</div>
+	<script>
+		// JavaScript function to personalize the message
+		function personalizeMessage() {
+			const userName = document.getElementById("userName").value;
+			const messageDiv = document.getElementById("personalized-message");
+
+			if (userName.trim() === "") {
+				messageDiv.innerHTML = "Please enter your name to personalize your experience!";
+				messageDiv.style.color = "red";
+			} else {
+				messageDiv.innerHTML = `Welcome, ${userName}! Get ready to explore the exciting activities we have for you.`;
+				messageDiv.style.color = "#444";
+			}
+		}
+	</script>
+</body>
+</html>
