@@ -126,12 +126,7 @@
 		</div>
 		<div id="body">
 			<h1>Explore Activities</h1>
-			<div id="personalize-section">
-				<h2>Want a personalized experience? Enter your name:</h2>
-				<input type="text" id="userName" placeholder="Enter your name">
-				<button onclick="personalizeMessage()">Submit</button>
-				<div id="personalized-message"></div>
-			</div>
+			
 			<div class="activities-list">
 				<div class="activity-card">
 					<img src="images/activity1.jpg" alt="Activity 1">
@@ -157,20 +152,6 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		// JavaScript function to personalize the message
-		function personalizeMessage() {
-			const userName = document.getElementById("userName").value;
-			const messageDiv = document.getElementById("personalized-message");
-
-			if (userName.trim() === "") {
-				messageDiv.innerHTML = "Please enter your name to personalize your experience!";
-				messageDiv.style.color = "red";
-			} else {
-				messageDiv.innerHTML = `Welcome, ${userName}! Get ready to explore the exciting activities we have for you.`;
-				messageDiv.style.color = "#444";
-			}
-		}
-	</script>
+	
 </body>
 </html>
