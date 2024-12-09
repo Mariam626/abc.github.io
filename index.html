@@ -18,79 +18,8 @@
 			display: inline-block;
 		}
 
-		/* Individual character animation */
-		.animated-message span {
-			display: inline-block;
-			transform: scale(0.8);
-			opacity: 0;
-			transition: all 1s ease;
-		}
-
-		/* Bounce effect */
-		.animated-message span.bounce {
-			transform: scale(1.2);
-			opacity: 1;
-		}
-
-		/* Glow effect */
-		.glow {
-			text-shadow: 0 0 5px #333333, 0 0 10px #666666, 0 0 15px #999999;
-			animation: glow-animation 1.5s infinite alternate;
-		}
-
-		/* Keyframe for glowing effect */
-		@keyframes glow-animation {
-			from {
-				text-shadow: 0 0 5px #333333, 0 0 10px #666666, 0 0 15px #999999;
-			}
-			to {
-				text-shadow: 0 0 7px #333333, 0 0 12px #666666, 0 0 20px #999999;
-			}
-		}
-
-		/* Additional animation styles */
-		.fade-in {
-			opacity: 0;
-			transition: opacity 2s ease-in-out;
-		}
-
-		.fade-in.visible {
-			opacity: 1;
-		}
-
-		.scale-up {
-			transform: scale(0.8);
-			opacity: 0;
-			transition: transform 1s ease-out, opacity 1s ease-out;
-		}
-
-		.scale-up.visible {
-			transform: scale(1);
-			opacity: 1;
-		}
-
-		.text-slide {
-			transform: translateX(-100%);
-			opacity: 0;
-			transition: transform 1s ease-out, opacity 1s ease-out;
-		}
-
-		.text-slide.visible {
-			transform: translateX(0);
-			opacity: 1;
-		}
-
-		.hover-zoom {
-			transition: transform 1s ease, box-shadow 1s ease;
-		}
-
-		.hover-zoom:hover {
-			transform: scale(1.1);
-			box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-		}
-
-		/* Styling for the modifications section */
-		#modifications {
+		/* Styling for the inquiry form */
+		#inquiry-box {
 			background-color: #f9f9f9;
 			border: 1px solid #ddd;
 			padding: 20px;
@@ -98,18 +27,51 @@
 			width: 80%;
 			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 			border-radius: 8px;
+			text-align: left;
 		}
 
-		#modifications h2 {
+		#inquiry-box h2 {
 			color: #6a9fb5;
 			font-size: 20px;
 			margin-bottom: 10px;
 		}
 
-		#modifications p {
-			font-size: 16px;
-			line-height: 1.6;
+		#inquiry-box label {
+			display: block;
+			margin: 10px 0 5px;
+			font-weight: bold;
 			color: #333;
+		}
+
+		#inquiry-box input, #inquiry-box textarea {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			font-size: 16px;
+		}
+
+		#inquiry-box button {
+			background-color: #6a9fb5;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		#inquiry-box button:hover {
+			background-color: #5a8da5;
+		}
+
+		#success-message {
+			display: none;
+			color: green;
+			margin-top: 20px;
+			text-align: center;
+			font-weight: bold;
 		}
 	</style>
 </head>
@@ -127,91 +89,76 @@
 			</div>
 		</div>
 		<div id="body" class="home">
-			<div class="header fade-in" id="fade-header">
-				<div id="personalize-section">
-				<h2>Want a personalized experience? Enter your name:</h2>
-				<input type="text" id="userName" placeholder="Enter your name">
-				<button onclick="personalizeMessage()">Submit</button>
-				<div id="personalized-message"></div>
-			</div>
-				<div>
-					<h1 class="text-slide">EXPLORE<br>THE BEAUTY OF NUWARA ELIYA</h1>
-					<p id="welcome-message" class="animated-message"></p>
-				</div>
-			</div>
-			<div class="body scale-up" id="scale-body">
-				<div>
-					<h1 class="text-slide">WELCOME TO LITTLE ENGLAND</h1>
-					<p class="text-slide">Nuwara Eliya offers breathtaking landscapes, serene tea estates, and cool weather. Come and experience the charm of Sri Lanka’s hill country!</p>
-				</div>
-			</div>
-			<div id="modifications" class="text-slide">
-				<h2>Modifications Made to the Website</h2>
-				<p>
-					1. Enhanced the CSS styling, including hover effects, animations, and responsive design improvements.<br>
-					2. Added a JavaScript-powered animated welcome message on the home page.<br>
-					3. Incorporated scroll-triggered animations using JavaScript on various pages, such as the About page.<br>
-					4. Created a dynamic "Activities" page with interactive cards and personalized user input functionality.<br>
-					5. Updated the overall design with modern fonts, colors, and visual hierarchy improvements.<br>
-					6. Added hover animations to navigation menu items, images, and buttons for better interactivity.<br>
-					7. Integrated a personalized message feature on the "Activities" page for user engagement.<br>
-					8. Aligned all pages with the theme of Nuwara Eliya, focusing on nature and elegance.<br>
-				</p>
+			<div>
+				<h1 class="text-slide">EXPLORE<br>THE BEAUTY OF NUWARA ELIYA</h1>
+				<p id="welcome-message" class="animated-message"></p>
 			</div>
 		</div>
-		<script>
-			// Welcoming Message Typing Animation
-			window.onload = function () {
-				const message = "Welcome to the Enchanting Nuwara Eliya!";
-				const welcomeElement = document.getElementById("welcome-message");
-				let index = 0;
-
-				function animateMessage() {
-					if (index < message.length) {
-						welcomeElement.innerHTML += message.charAt(index);
-						index++;
-						setTimeout(animateMessage, 100); // Speed of typing
-					}
-				}
-				animateMessage();
-
-				// Trigger animations on scroll
-				const animatedElements = document.querySelectorAll(".fade-in, .scale-up, .text-slide");
-
-				function handleScroll() {
-					animatedElements.forEach((el) => {
-						const rect = el.getBoundingClientRect();
-						if (rect.top < window.innerHeight - 100) {
-							el.classList.add("visible");
-						}
-					});
-				}
-
-				window.addEventListener("scroll", handleScroll);
-				handleScroll(); // Trigger on page load
-			};
+		<div class="body scale-up" id="scale-body">
+			<div>
+				<h1 class="text-slide">WELCOME TO LITTLE ENGLAND</h1>
+				<p class="text-slide">Nuwara Eliya offers breathtaking landscapes, serene tea estates, and cool weather. Come and experience the charm of Sri Lanka’s hill country!</p>
+			</div>
+		</div>
+		<div id="modifications" class="text-slide">
+			<h2>Modifications Made to the Website</h2>
+			<p>
+				1. Enhanced the CSS styling, including hover effects, animations, and responsive design improvements.<br>
+				2. Added a JavaScript-powered animated welcome message on the home page.<br>
+				3. Incorporated scroll-triggered animations using JavaScript on various pages, such as the About page.<br>
+				4. Created a dynamic "Activities" page with interactive cards and personalized user input functionality.<br>
+				5. Updated the overall design with modern fonts, colors, and visual hierarchy improvements.<br>
+				6. Added hover animations to navigation menu items, images, and buttons for better interactivity.<br>
+				7. Integrated a personalized message feature on the "Activities" page for user engagement.<br>
+				8. Aligned all pages with the theme of Nuwara Eliya, focusing on nature and elegance.<br>
+			</p>
+		</div>
 		
-		// JavaScript function to personalize the message
-		function personalizeMessage() {
-			const userName = document.getElementById("userName").value;
-			const messageDiv = document.getElementById("personalized-message");
+		<div id="inquiry-box">
+			<h2>Inquiry Form</h2>
+			<form id="inquiry-form">
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name" required>
 
-			if (userName.trim() === "") {
-				messageDiv.innerHTML = "Please enter your name to personalize your experience!";
-				messageDiv.style.color = "red";
-			} else {
-				messageDiv.innerHTML = `Welcome, ${userName}! Get ready to explore the exciting activities we have for you.`;
-				messageDiv.style.color = "#444";
-			}
-		}
-	</script>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" required>
 
-			
+				<label for="message">Message:</label>
+				<textarea id="message" name="message" rows="4" required></textarea>
+
+				<button type="submit">Submit</button>
+			</form>
+			<p id="success-message">Successfully submitted!</p>
+		</div>
+		
 		<div id="footer">
 			<div>
 				<p>&copy; 24224012 &nbsp; Fathima Mariam Imtiaz</p>
 			</div>
 		</div>
 	</div>
+	<script>
+		// Welcoming Message Typing Animation
+		window.onload = function () {
+			const message = "Welcome to the Enchanting Nuwara Eliya!";
+			const welcomeElement = document.getElementById("welcome-message");
+			let index = 0;
+
+			function animateMessage() {
+				if (index < message.length) {
+					welcomeElement.innerHTML += message.charAt(index);
+					index++;
+					setTimeout(animateMessage, 100); // Speed of typing
+				}
+			}
+			animateMessage();
+		};
+
+		// Handle inquiry form submission
+		document.getElementById('inquiry-form').addEventListener('submit', function (event) {
+			event.preventDefault(); // Prevent form submission
+			document.getElementById('success-message').style.display = 'block';
+		});
+	</script>
 </body>
 </html>
