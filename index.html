@@ -153,7 +153,7 @@
 			<div class="header fade-in" id="fade-header">
 				<div id="personalize-section">
 				<h2>Enter your inquiry:</h2>
-				<input type="text" id="userName" placeholder="Enter your name">
+				<input type="text" id="userName" placeholder="Enter your inquiry">
 				<button onclick="personalizeMessage()">Submit</button>
 				<div id="personalized-message"></div>
 			</div>
@@ -231,7 +231,7 @@
 			const messageDiv = document.getElementById("personalized-message");
 
 			if (userName.trim() === "") {
-				messageDiv.innerHTML = "Please enter your name to personalize your experience!";
+				messageDiv.innerHTML = "Please enter your inquiry.";
 				messageDiv.style.color = "red";
 			} else {
 				messageDiv.innerHTML = `Your inquiry is, ${userName}! .`;
