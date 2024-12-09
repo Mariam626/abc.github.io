@@ -68,6 +68,33 @@
 
 
 
+/* Ensure footer visibility */
+#footer {
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#body {
+    padding-bottom: 50px; /* Ensure space for the footer */
+}
+
+#page {
+    min-height: 100vh; /* Make sure the page takes up full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+#footer {
+    margin-top: auto; /* Push footer to the bottom */
+}
 
 
 
@@ -351,10 +378,11 @@
 
 		</script>
 		<div id="footer">
-			<div>
-				<p>&copy; 24224012 &nbsp; Fathima Mariam Imtiaz</p>
-			</div>
-		</div>
+    <div>
+        <p>&copy; 24224012 &nbsp; Fathima Mariam Imtiaz</p>
+    </div>
+</div>
+
 	</div>
 </body>
 </html>
