@@ -190,7 +190,23 @@
 				window.addEventListener("scroll", handleScroll);
 				handleScroll(); // Trigger on page load
 			};
-		</script>
+		
+		// JavaScript function to personalize the message
+		function personalizeMessage() {
+			const userName = document.getElementById("userName").value;
+			const messageDiv = document.getElementById("personalized-message");
+
+			if (userName.trim() === "") {
+				messageDiv.innerHTML = "Please enter your name to personalize your experience!";
+				messageDiv.style.color = "red";
+			} else {
+				messageDiv.innerHTML = `Welcome, ${userName}! Get ready to explore the exciting activities we have for you.`;
+				messageDiv.style.color = "#444";
+			}
+		}
+	</script>
+
+			
 		<div id="footer">
 			<div>
 				<p>&copy; 24224012 &nbsp; Fathima Mariam Imtiaz</p>
