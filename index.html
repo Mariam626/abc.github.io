@@ -152,7 +152,7 @@
 		<div id="body" class="home">
 			<div class="header fade-in" id="fade-header">
 				<div id="personalize-section">
-				<h2>Want a personalized experience? Enter your name:</h2>
+				<h2>Enter your inquiry:</h2>
 				<input type="text" id="userName" placeholder="Enter your name">
 				<button onclick="personalizeMessage()">Submit</button>
 				<div id="personalized-message"></div>
@@ -234,7 +234,7 @@
 				messageDiv.innerHTML = "Please enter your name to personalize your experience!";
 				messageDiv.style.color = "red";
 			} else {
-				messageDiv.innerHTML = `Welcome, ${userName}! Get ready to explore the exciting activities we have for you.`;
+				messageDiv.innerHTML = `Your inquiry is, ${userName}! .`;
 				messageDiv.style.color = "#444";
 			}
 		} 
