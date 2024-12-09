@@ -334,14 +334,20 @@
 			};
 
 			
+
 	// Handle Contact Form Submission
-	const form = document.getElementById("contactUsForm");
-	const successMessage = document.getElementById("success-message");
-	form.addEventListener("submit", function (event) {
-		event.preventDefault();
-		successMessage.style.display = "block";
-		form.reset();
+	document.addEventListener("DOMContentLoaded", function () {
+		const form = document.getElementById("contactUsForm");
+		const successMessage = document.getElementById("success-message");
+
+		form.addEventListener("submit", function (event) {
+			event.preventDefault(); // Prevent form reload
+			successMessage.style.display = "block"; // Show success message
+			form.reset(); // Clear the form fields
+		});
 	});
+
+
 
 
 		</script>
