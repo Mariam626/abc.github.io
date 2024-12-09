@@ -263,10 +263,10 @@
 		<textarea id="message" name="message" rows="5" required></textarea>
 
 		<button type="submit">Submit</button>
+		<p id="success-message" style="display: none;">Thank you for contacting us! We will get back to you soon.</p>
 	</form>
-	<p id="success-message">Thank you for contacting us! We will get back to you soon.</p>
 </div>
-			</div>
+
 		
 
 
@@ -335,17 +335,20 @@
 
 			
 
-	// Handle Contact Form Submission
+	
 	document.addEventListener("DOMContentLoaded", function () {
 		const form = document.getElementById("contactUsForm");
 		const successMessage = document.getElementById("success-message");
 
 		form.addEventListener("submit", function (event) {
-			event.preventDefault(); // Prevent form reload
-			successMessage.style.display = "block"; // Show success message
+			event.preventDefault(); // Prevent page reload
+			successMessage.style.display = "block"; // Show success message below the button
+			successMessage.innerText = "Thank you for contacting us! We will get back to you soon."; // Set the success message text
 			form.reset(); // Clear the form fields
 		});
 	});
+
+
 
 
 
