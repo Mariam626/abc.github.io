@@ -332,6 +332,18 @@
 					popup.classList.add("fade-out");
 				}, 3000); // Popup visible for 3 seconds
 			};
+
+			
+	// Handle Contact Form Submission
+	const form = document.getElementById("contactUsForm");
+	const successMessage = document.getElementById("success-message");
+	form.addEventListener("submit", function (event) {
+		event.preventDefault();
+		successMessage.style.display = "block";
+		form.reset();
+	});
+
+
 		</script>
 		<div id="footer">
 			<div>
