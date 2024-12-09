@@ -23,7 +23,7 @@
 			display: inline-block;
 			transform: scale(0.8);
 			opacity: 0;
-			transition: all 0.3s ease;
+			transition: all 1s ease;
 		}
 
 		/* Bounce effect */
@@ -61,7 +61,7 @@
 		.scale-up {
 			transform: scale(0.8);
 			opacity: 0;
-			transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+			transition: transform 1s ease-out, opacity 1s ease-out;
 		}
 
 		.scale-up.visible {
@@ -69,8 +69,19 @@
 			opacity: 1;
 		}
 
+		.text-slide {
+			transform: translateX(-100%);
+			opacity: 0;
+			transition: transform 1s ease-out, opacity 1s ease-out;
+		}
+
+		.text-slide.visible {
+			transform: translateX(0);
+			opacity: 1;
+		}
+
 		.hover-zoom {
-			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			transition: transform 1s ease, box-shadow 1s ease;
 		}
 
 		.hover-zoom:hover {
@@ -118,17 +129,17 @@
 		<div id="body" class="home">
 			<div class="header fade-in" id="fade-header">
 				<div>
-					<h1>EXPLORE<br>THE BEAUTY OF NUWARA ELIYA</h1>
+					<h1 class="text-slide">EXPLORE<br>THE BEAUTY OF NUWARA ELIYA</h1>
 					<p id="welcome-message" class="animated-message"></p>
 				</div>
 			</div>
 			<div class="body scale-up" id="scale-body">
 				<div>
-					<h1>WELCOME TO LITTLE ENGLAND</h1>
-					<p>Nuwara Eliya offers breathtaking landscapes, serene tea estates, and cool weather. Come and experience the charm of Sri Lanka’s hill country!</p>
+					<h1 class="text-slide">WELCOME TO LITTLE ENGLAND</h1>
+					<p class="text-slide">Nuwara Eliya offers breathtaking landscapes, serene tea estates, and cool weather. Come and experience the charm of Sri Lanka’s hill country!</p>
 				</div>
 			</div>
-			<div id="modifications">
+			<div id="modifications" class="text-slide">
 				<h2>Modifications Made to the Website</h2>
 				<p>
 					1. Enhanced the CSS styling, including hover effects, animations, and responsive design improvements.<br>
@@ -154,25 +165,15 @@
 						welcomeElement.innerHTML += message.charAt(index);
 						index++;
 						setTimeout(animateMessage, 100); // Speed of typing
-					} else {
-						welcomeElement.classList.add("highlight");
 					}
 				}
 				animateMessage();
 
-				// Trigger fade-in animation on scroll
-				const fadeInElements = document.querySelectorAll(".fade-in");
-				const scaleUpElements = document.querySelectorAll(".scale-up");
+				// Trigger animations on scroll
+				const animatedElements = document.querySelectorAll(".fade-in, .scale-up, .text-slide");
 
 				function handleScroll() {
-					fadeInElements.forEach((el) => {
-						const rect = el.getBoundingClientRect();
-						if (rect.top < window.innerHeight - 100) {
-							el.classList.add("visible");
-						}
-					});
-
-					scaleUpElements.forEach((el) => {
+					animatedElements.forEach((el) => {
 						const rect = el.getBoundingClientRect();
 						if (rect.top < window.innerHeight - 100) {
 							el.classList.add("visible");
